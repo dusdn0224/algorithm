@@ -1,6 +1,7 @@
 T = int(input())
 for tc in range(1, T+1):
     arr = list(input())
+
     for i in range(len(arr)):
         if arr[i] == '(':
             if arr[i + 1] != ')':
@@ -19,3 +20,15 @@ for tc in range(1, T+1):
             result += 1
             cnt -= 1
     print(f'#{tc}', result)
+
+    # result = 0
+    # cnt = 0
+    # for i in range(len(arr)):
+    #     if arr[i] == '(' and arr[i + 1] != ')':
+    #         cnt += 1
+    #     elif arr[i] == '(':
+    #         result += cnt
+    #     elif arr[i] == ')' and arr[i - 1] != '(':
+    #         result += 1
+    #         cnt -= 1
+    # print(f'#{tc}', result)
