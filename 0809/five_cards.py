@@ -1,5 +1,6 @@
 arr = list(input())
-num = []  # [0, 0, 0, 0]으로 바꿔야할듯...
+num = []
+# num = [0] * 4
 cnt = 0
 
 
@@ -13,11 +14,12 @@ def card(k):
                 check += 1
         if check == 3:
             cnt += 1
-        num.pop()  # num[3]만 계속 날아감
         return
     for i in arr:
+        # num[k] = i
         num.append(i)
         card(k + 1)
+        num.pop()
 
 
 card(0)
