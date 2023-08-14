@@ -1,5 +1,5 @@
 N = int(input())
 
 
-def hanoi(n):
-    
+def hanoi():
+    pass

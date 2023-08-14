@@ -5,23 +5,41 @@ def pal(s):
     for i in range(len(s) // 2):
         if s[i] != s[len(s) - 1 - i]:
             return 2
-    return 0
+    else:
+        return 0
 
 
-def psdpal(s):
-    check = 0
-    for char in s:
-        cnt = s.count(char)
-        if cnt % 2:
-            check += 1
+def psdpal1(s):
+    s = list(s)
+    for i in range(len(s) // 2):
+        if s[i] != s[len(s) - 1 - i]:
+            s.pop(i)
+            break
+    for j in range(len(s) // 2):
+        if s[j] != s[len(s) - 1 - j]:
+            return 2
+    else:
+        return 1
+
+
+def psdpal2(s):
+    s = list(s)
+    for i in range(len(s) // 2):
+        if s[i] != s[len(s) - 1 - i]:
+            s.pop(len(s) - 1 - i)
+            break
+    for j in range(len(s) // 2):
+        if s[j] != s[len(s) - 1 - j]:
+            return 2
+    else:
+        return 1
 
 
 for _ in range(T):
     string = input()
-    # print(pal(string))
-    cnt1 = cnt2 = cnt3 = 0
-    for i in range(len(string) // 2):
-        if string[i] == string[len(string) - 1 - i]:
-            cnt1 += 1
-    # print(f'[{len(string) // 2}]', cnt1, cnt2, cnt3, sep=', ')
-    print(string.replace('b', ''))
+    ans = pal(string)
+    if ans == 2:
+        ans = psdpal1(string)
+    if ans == 2:
+        ans = psdpal2(string)
+    print(ans)
