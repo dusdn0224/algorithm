@@ -1,40 +1,38 @@
-def lr():
-    global balloon
-    max_point = 0
-    for i in range(1, len(balloon) - 1):
-        point = balloon[i - 1] * balloon[i + 1]
+def f(i, n, order):
+    global max_point
+    if i == n:
+        point = 0
+        balloon2 = balloon[:]
+        order2 = order[:]
+        for k in order2[0:10]:
+            if k == 0:
+                point += balloon2[k + 1]
+                balloon2.pop(k)
+            elif k == len(balloon2) - 1:
+                point += balloon2[k - 1]
+                balloon2.pop(k)
+            else:
+                point += balloon2[k - 1] * balloon2[k + 1]
+                balloon2.pop(k)
+            for p in range(len(order2)):
+                if order2[p] > k:
+                    order2[p] -= 1
+        point += max(balloon2) * 2
         if max_point < point:
             max_point = point
-            b = i
-    balloon.pop(b)
-    return max_point
-
-
-def dp(n):
-    
-
-
-def f(i, n):
-    if i == n:
-        for k in order:
-            if k == 0:
-                point += balloon[1]
-            elif k == len(balloon) - 1:
-                point +=
     else:
-        for j in (i, n -1):
+        for j in range(i, n):
             order[i], order[j] = order[j], order[i]
-            f(i+1, N)
+            f(i+1, n, order)
             order[i], order[j] = order[j], order[i]
+
 
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
     balloon = list(map(int, input().split()))
-    ans = 0
-    for _ in range(N - 2):
-        ans += lr()
-    ans += max(balloon) * 2
-    print(balloon, ans)
 
-    order = [i for i in range(N)]
+    order1 = [i for i in range(N)]
+    max_point = 0
+    f(0, N, order1)
+    print(f'#{tc}', max_point)
