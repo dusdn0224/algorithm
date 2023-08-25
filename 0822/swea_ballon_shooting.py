@@ -4,8 +4,13 @@ def f(i, n, order):
         point = 0
         balloon2 = balloon[:]
         order2 = order[:]
-        for k in order2[0:10]:
-            if k == 0:
+        for k in order2:
+            if len(balloon2) == 2:
+                point += max(balloon2) * 2
+                break
+            elif len(balloon2) == 1:
+                point += balloon2[0]
+            elif k == 0:
                 point += balloon2[k + 1]
                 balloon2.pop(k)
             elif k == len(balloon2) - 1:
@@ -17,7 +22,6 @@ def f(i, n, order):
             for p in range(len(order2)):
                 if order2[p] > k:
                     order2[p] -= 1
-        point += max(balloon2) * 2
         if max_point < point:
             max_point = point
     else:

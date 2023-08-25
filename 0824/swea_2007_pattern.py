@@ -10,3 +10,8 @@ for tc in range(1, T+1):
             ans = i
             break
     print(f'#{tc}', ans)
+
+    # for i in range(1, 11):
+    #     if sent[:i] == sent[i:i * 2]:
+    #         print(f'#{tc} {i}')
+    #         break
