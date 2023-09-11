@@ -9,6 +9,6 @@ x = abs(goal[1] - start[1])
 
 a = math.sqrt(y ** 2 + x ** 2)
 
-ga = math.atan(y / x)
+ga = math.atan(15 / 5)
 
 print(a, math.degrees(ga))
