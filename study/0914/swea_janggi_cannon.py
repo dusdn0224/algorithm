@@ -2,83 +2,63 @@ def game(i, j, move, lst):
     if move == 3:
         return
     start_y, start_x = i, j
-    two = 0
     while 0 <= i - 1:
         i -= 1
         if arr[i][j] == 1 and (i, j) not in lst:
-            two += 1
             while 0 <= i - 1:
                 i -= 1
                 if arr[i][j] == 1 and (i, j) not in lst:
-                    two += 1
                     lst.append((i, j))
                     visited[i][j] = 1
                     game(i, j, move + 1, lst)
                     lst.pop()
-                    if two == 2:
-                        break
+                    break
                 else:
-                    two = 0
                     game(i, j, move + 1, lst)
             break
     i, j = start_y, start_x
-    two = 0
     while i + 1 < N:
         i += 1
         if arr[i][j] == 1 and (i, j) not in lst:
-            two += 1
             while i + 1 < N:
                 i += 1
                 if arr[i][j] == 1 and (i, j) not in lst:
-                    two += 1
                     lst.append((i, j))
                     visited[i][j] = 1
                     game(i, j, move + 1, lst)
                     lst.pop()
-                    if two == 2:
-                        break
+                    break
                 else:
-                    two = 0
                     game(i, j, move + 1, lst)
             break
     i, j = start_y, start_x
-    two = 0
     while 0 <= j - 1:
         j -= 1
         if arr[i][j] == 1 and (i, j) not in lst:
-            two += 1
             while 0 <= j - 1:
                 j -= 1
                 if arr[i][j] == 1 and (i, j) not in lst:
-                    two += 1
                     lst.append((i, j))
                     visited[i][j] = 1
                     game(i, j, move + 1, lst)
                     lst.pop()
-                    if two == 2:
-                        break
+                    break
                 else:
-                    two = 0
                     game(i, j, move + 1, lst)
             break
     i, j = start_y, start_x
-    two = 0
     while j + 1 < N:
         j += 1
         if arr[i][j] == 1 and (i, j) not in lst:
-            two += 1
             while j + 1 < N:
                 j += 1
                 if arr[i][j] == 1 and (i, j) not in lst:
-                    two += 1
                     lst.append((i, j))
                     visited[i][j] = 1
                     game(i, j, move + 1, lst)
                     lst.pop()
-                    if two == 2:
-                        break
+                    break
                 else:
-                    two = 0
                     game(i, j, move + 1, lst)
             break
 
@@ -102,5 +82,4 @@ for tc in range(1, T+1):
         for x in range(N):
             if visited[y][x]:
                 cnt += 1
-    print(visited)
     print(f'#{tc}', cnt)
