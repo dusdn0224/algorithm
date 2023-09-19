@@ -11,6 +11,13 @@ for tc in range(1, T+1):
             D.append(d)
         elif d > 1:
             hap += d
+    print(hap, D)
+    pre = 0
+    for one in range(len(D)):
+        if hap - 2 >= 0:
+            hap -= 2
+            pre += 2
+            D.pop()
     if hap % 3 == 0:
         ans = (hap // 3) * 2
         if D:
@@ -23,4 +30,4 @@ for tc in range(1, T+1):
         ans = (hap // 3) * 2 + 2
         if len(D) > 1:
             ans += (len(D) - 1) * 2 - 1
-    print(f'#{tc}', ans)
+    print(f'#{tc}', ans + pre)
