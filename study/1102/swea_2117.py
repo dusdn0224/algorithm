@@ -1,9 +1,10 @@
 def service(n):
+    # 마름모 모양을 만들 함수
     area = []
     for j in range(n):
         for i in range(-(n - 1) + j, n - j):
-            area.append((i, j))
-            area.append((i, -j))
+            area.append((i, j))  # 오른쪽 끝
+            area.append((i, -j))  # 왼쪽 끝
     return list(set(area))
 
 
